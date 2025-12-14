@@ -5,6 +5,7 @@ import { Search } from 'lucide-react';
 import './Blog.css';
 import { useNavigate } from 'react-router-dom';
 import thumbnail from '../assets/lo-trinh-hoc-lap-trinh-web-frontend-2026.png';
+import masThumbnail from '../assets/mas-thumbnail.png';
 
 const Blog = () => {
     const navigate = useNavigate();
@@ -20,11 +21,12 @@ const Blog = () => {
     const posts = [
         {
             id: 1,
-            title: 'Khắc phục lỗi màn hình xanh trên Windows',
-            excerpt: 'Tổng hợp các mã lỗi thường gặp và cách xử lý nhanh chóng.',
-            category: 'IT Support',
-            date: 'Dec 10, 2025',
-            image: '💻'
+            title: 'Microsoft Activation Scripts (MAS)',
+            excerpt: 'Open-source Windows and Office activator featuring HWID, Ohook, TSforge, and Online KMS.',
+            category: 'Software Tools',
+            date: 'Dec 14, 2025',
+            image: masThumbnail, // Using the imported image
+            link: '/blog/microsoft-activation-scripts'
         },
         {
             id: 2,
@@ -85,14 +87,28 @@ const Blog = () => {
                         <div className="blog-list-grid">
                             {posts.map(post => (
                                 <div key={post.id} className="blog-list-item">
-                                    <div className="blog-item-img">{post.image}</div>
+                                    <div className="blog-item-img">
+                                        {typeof post.image === 'string' && (post.image.includes('/') || post.image.includes('.png') || post.image.includes('.jpg')) ?
+                                            <img src={post.image} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> :
+                                            post.image
+                                        }
+                                    </div>
                                     <div className="blog-item-info">
                                         <span style={{ color: 'var(--primary-red)', fontSize: '0.875rem', fontWeight: 600 }}>{post.category}</span>
                                         <h3 style={{ margin: '8px 0' }}>{post.title}</h3>
                                         <p className="text-muted" style={{ marginBottom: '16px' }}>{post.excerpt}</p>
                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                             <span style={{ fontSize: '0.8rem', color: '#999' }}>{post.date}</span>
-                                            <a href="#" style={{ fontWeight: 600 }}>Read more</a>
+                                            {post.link ? (
+                                                <span
+                                                    onClick={() => navigate(post.link)}
+                                                    style={{ fontWeight: 600, cursor: 'pointer', color: 'inherit' }}
+                                                >
+                                                    Read more
+                                                </span>
+                                            ) : (
+                                                <a href="#" style={{ fontWeight: 600 }}>Read more</a>
+                                            )}
                                         </div>
                                     </div>
                                 </div>

@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Card from '../common/Card';
 import { ArrowRight } from 'lucide-react';
 import './LatestBlog.css';
 import blog1 from '../../assets/5-ky-nang-cntt-can-thiet-cho-nguoi-moi-bat-dau.png';
-import blog2 from '../../assets/cach-khac-phuc-may-tinh-chay-cham-don-gian.png';
+import masThumbnail from '../../assets/mas-thumbnail.png';
 import blog3 from '../../assets/xu-huong-thiet-ke-web-nam-2025.png';
 
 const LatestBlog = () => {
@@ -13,21 +14,24 @@ const LatestBlog = () => {
             title: '5 Kỹ năng CNTT cần thiết cho người mới bắt đầu',
             excerpt: 'Khám phá những kỹ năng nền tảng giúp bạn tự tin bước vào thế giới công nghệ thông tin.',
             category: 'Học tập',
-            image: blog1
+            image: blog1,
+            link: '#'
         },
         {
             id: 2,
-            title: 'Cách khắc phục máy tính chạy chậm đơn giản',
-            excerpt: 'Những mẹo nhỏ giúp tối ưu hóa hiệu suất máy tính của bạn mà không cần mang ra tiệm.',
-            category: 'Thủ thuật',
-            image: blog2
+            title: 'Microsoft Activation Scripts (MAS)',
+            excerpt: 'Open-source Windows and Office activator featuring HWID, Ohook, TSforge, and Online KMS.',
+            category: 'Software Tools',
+            image: masThumbnail,
+            link: '/blog/microsoft-activation-scripts'
         },
         {
             id: 3,
             title: 'Xu hướng thiết kế web năm 2025',
             excerpt: 'Cập nhật những xu hướng thiết kế website mới nhất để thu hút khách hàng.',
             category: 'Thiết kế',
-            image: blog3
+            image: blog3,
+            link: '#'
         }
     ];
 
@@ -45,9 +49,9 @@ const LatestBlog = () => {
                                 <span className="blog-category">{post.category}</span>
                                 <h3 className="blog-title">{post.title}</h3>
                                 <p className="blog-excerpt">{post.excerpt}</p>
-                                <a href="#" className="blog-read-more">
+                                <Link to={post.link} className="blog-read-more">
                                     Đọc tiếp <ArrowRight size={16} />
-                                </a>
+                                </Link>
                             </div>
                         </Card>
                     ))}
@@ -55,7 +59,7 @@ const LatestBlog = () => {
                 <div className="text-center">
                     {/* Center button handled by utility classes or flex */}
                     <div className="flex-center">
-                        <a href="/blog" style={{ fontWeight: 600, color: 'var(--primary-red)' }}>Xem tất cả bài viết &rarr;</a>
+                        <Link to="/blog" style={{ fontWeight: 600, color: 'var(--primary-red)' }}>Xem tất cả bài viết &rarr;</Link>
                     </div>
                 </div>
             </div>
