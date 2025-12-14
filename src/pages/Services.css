@@ -1,0 +1,85 @@
+.services-page {
+    background-color: var(--bg-color);
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.services-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-heading);
+}
+
+.services-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.service-card-full {
+    padding: var(--spacing-xl);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-icon-lg {
+    width: 80px;
+    height: 80px;
+    background: rgba(237, 33, 58, 0.05);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-red);
+    margin-bottom: var(--spacing-lg);
+    transition: all 0.3s;
+}
+
+.service-card-full:hover .service-icon-lg {
+    background: var(--gradient-red);
+    color: white;
+    transform: rotate(-5deg);
+}
+
+.service-features {
+    list-style: none;
+    margin: var(--spacing-md) 0 var(--spacing-lg);
+    flex: 1;
+}
+
+.service-features li {
+    margin-bottom: var(--spacing-xs);
+    padding-left: 20px;
+    position: relative;
+    color: var(--text-body);
+}
+
+.service-features li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary-red);
+    font-weight: bold;
+}
+
+.service-link {
+    color: var(--primary-red);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: auto;
+}
+
+.service-link:hover {
+    text-decoration: underline;
+}
