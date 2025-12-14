@@ -6,6 +6,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Portfolio from './pages/Portfolio';
 import Blog from './pages/Blog';
+import FrontendRoadmap2025 from './pages/blog/FrontendRoadmap2025';
 import Contact from './pages/Contact';
 import ScrollToTop from './components/common/ScrollToTop';
 
@@ -43,6 +44,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/frontend-roadmap-2025" element={<FrontendRoadmap2025 />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>

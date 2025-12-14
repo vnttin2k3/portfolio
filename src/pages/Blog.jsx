@@ -3,14 +3,18 @@ import Card from '../components/common/Card';
 import Button from '../components/common/Button';
 import { Search } from 'lucide-react';
 import './Blog.css';
+import { useNavigate } from 'react-router-dom';
+import thumbnail from '../assets/lo-trinh-hoc-lap-trinh-web-frontend-2026.png';
 
 const Blog = () => {
+    const navigate = useNavigate();
+
     const featuredPost = {
         id: 99,
         title: 'Lộ trình học Lập trình Web Frontend 2025',
         excerpt: 'Hướng dẫn chi tiết từ số 0 đến khi có việc làm với ReactJS, NextJS và các công nghệ mới nhất.',
         category: 'Featured',
-        image: '🚀'
+        image: thumbnail
     };
 
     const posts = [
@@ -53,12 +57,20 @@ const Blog = () => {
     return (
         <div className="blog-page section-padding">
             <div className="container">
-                <h1 className="section-title text-center" style={{ marginBottom: '48px' }}>Blog Chia sẻ</h1>
+                <h1 className="section-title text-center" style={{ marginBottom: '48px' }}>Blog</h1>
 
                 {/* Featured Post */}
-                <div className="featured-post">
+                <div
+                    className="featured-post"
+                    onClick={() => navigate('/blog/frontend-roadmap-2025')}
+                    style={{ cursor: 'pointer' }}
+                >
                     <div className="featured-img">
-                        {featuredPost.image}
+                        <img
+                            src={featuredPost.image}
+                            alt={featuredPost.title}
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
                     </div>
                     <div className="featured-content">
                         <span className="featured-badge">{featuredPost.category}</span>
