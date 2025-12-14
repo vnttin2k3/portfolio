@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import Button from '../common/Button';
 import './Header.css';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
     const closeMenu = () => setIsOpen(false);
+
+    const handleContactClick = () => {
+        closeMenu();
+        navigate('/contact');
+    };
 
     const navItems = [
         { label: 'Home', path: '/' },
@@ -41,7 +47,7 @@ const Header = () => {
                             {item.label}
                         </NavLink>
                     ))}
-                    <Button variant="gradient" onClick={closeMenu}>
+                    <Button variant="gradient" onClick={handleContactClick}>
                         Liên hệ
                     </Button>
                 </nav>

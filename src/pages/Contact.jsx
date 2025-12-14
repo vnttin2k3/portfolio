@@ -24,7 +24,7 @@ const Contact = () => {
                         <div className="contact-details">
                             <div className="contact-item">
                                 <Mail size={24} />
-                                <span>contact@thaytin.com</span>
+                                <span>vnttin96@gmail.com</span>
                             </div>
                             <div className="contact-item">
                                 <Phone size={24} />
