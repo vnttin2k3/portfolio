@@ -1,10 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Button from '../common/Button';
 import profilesImg from '../../assets/profile.png';
 import './AboutPreview.css';
 
 const AboutPreview = () => {
+    const navigate = useNavigate();
+
     return (
         <section className="about-preview section-padding">
             <div className="container about-preview-container">
@@ -16,7 +19,7 @@ const AboutPreview = () => {
                     <p className="about-text">
                         Với hơn 10 năm kinh nghiệm trong lĩnh vực Công nghệ thông tin, tôi đam mê chia sẻ kiến thức và hỗ trợ mọi người tiếp cận công nghệ một cách dễ dàng nhất. Từ sửa chữa phần cứng, cài đặt hệ thống đến lập trình và thiết kế web, tôi luôn sẵn sàng đồng hành cùng bạn.
                     </p>
-                    <Button variant="outline" onClick={() => console.log('Go to About')}>
+                    <Button variant="outline" onClick={() => navigate('/about')}>
                         Tìm hiểu thêm <ArrowRight size={20} />
                     </Button>
                 </div>

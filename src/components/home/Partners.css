@@ -1,0 +1,66 @@
+.partners-section {
+    padding: var(--spacing-2xl) 0;
+    background-color: white;
+    overflow: hidden;
+}
+
+.partners-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.partners-track {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+}
+
+.partner-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: var(--bg-light);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    min-width: 180px;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.partner-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-red);
+    background: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.partner-logo {
+    font-size: 2rem;
+}
+
+.partner-name {
+    font-weight: 600;
+    color: var(--text-heading);
+    font-size: 1.1rem;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-50% - 20px));
+        /* Move by half the width (since we duplicated items) */
+    }
+}
+
+.partners-carousel:hover .partners-track {
+    animation-play-state: paused;
+}
